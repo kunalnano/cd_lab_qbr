@@ -1,13 +1,13 @@
 pipeline:
   name: cdlab_alsharma
-  # identifier: cdlab_alsharma
+  identifier: cdlab_alsharma
   projectIdentifier: testal
   orgIdentifier: TPMLabs
   tags: {}
   stages:
     - stage:
         name: rolling
-        identifier: rolling
+        
         description: This is looking good
         type: Deployment
         spec:
