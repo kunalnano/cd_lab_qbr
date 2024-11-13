@@ -8,7 +8,7 @@ pipeline:
     - stage:
         name: rolling
         identifier: rolling
-        description: This is looking good
+        description: Changing for testing
         type: Deployment
         spec:
           deploymentType: Kubernetes
