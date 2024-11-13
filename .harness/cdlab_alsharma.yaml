@@ -8,7 +8,7 @@ pipeline:
     - stage:
         name: rolling
         identifier: rolling
-        description: "This is a test to move from inline to git"
+        description: This is looking good
         type: Deployment
         spec:
           deploymentType: Kubernetes
