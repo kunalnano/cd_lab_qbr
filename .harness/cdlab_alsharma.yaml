@@ -29,6 +29,21 @@ pipeline:
                   spec:
                     skipDryRun: false
                     pruningEnabled: false
+              - step:
+                  type: HarnessApproval
+                  name: HarnessApproval_1
+                  identifier: HarnessApproval_1
+                  spec:
+                    approvalMessage: Please review the following information and approve the pipeline progression
+                    includePipelineExecutionHistory: true
+                    isAutoRejectEnabled: false
+                    approvers:
+                      userGroups:
+                        - account.test
+                      minimumCount: 1
+                      disallowPipelineExecutor: false
+                    approverInputs: []
+                  timeout: 1d
             rollbackSteps:
               - step:
                   name: Rollback Rollout Deployment
@@ -46,29 +61,3 @@ pipeline:
                 type: StageRollback
         delegateSelectors:
           - helm-delegate
-    - stage:
-        name: test_approvals
-        identifier: test_approvals
-        description: ""
-        type: Approval
-        spec:
-          execution:
-            steps:
-              - step:
-                  name: manual
-                  identifier: manual
-                  type: HarnessApproval
-                  timeout: 1d
-                  spec:
-                    approvalMessage: |-
-                      Please review the following information
-                      and approve the pipeline progression
-                    includePipelineExecutionHistory: true
-                    approvers:
-                      minimumCount: 1
-                      disallowPipelineExecutor: false
-                      userGroups:
-                        - account.test
-                    isAutoRejectEnabled: false
-                    approverInputs: []
-        tags: {}
