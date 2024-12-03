@@ -81,7 +81,7 @@ pipeline:
   properties:
     ci:
       codebase:
-        connectorRef: org.al_github
+        connectorRef: account.Github_OAuth_1720712151481
         repoName: harness_labs
         build: <+input>
         sparseCheckout: []
