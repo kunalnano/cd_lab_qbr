@@ -61,3 +61,20 @@ pipeline:
                 type: StageRollback
         delegateSelectors:
           - helm-delegate
+  notificationRules:
+    - name: Test Notification
+      identifier: Test_Notification
+      pipelineEvents:
+        - type: PipelineFailed
+        - type: StageFailed
+          forStages:
+            - rolling
+        - type: StepFailed
+      notificationMethod:
+        type: Email
+        spec:
+          userGroups: []
+          recipients:
+            - al.sharma@harness.io
+            - al.sharma@icloud.com
+      enabled: true
