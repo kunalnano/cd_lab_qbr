@@ -78,3 +78,10 @@ pipeline:
             - al.sharma@harness.io
             - al.sharma@icloud.com
       enabled: true
+  properties:
+    ci:
+      codebase:
+        connectorRef: org.al_github
+        repoName: harness_labs
+        build: <+input>
+        sparseCheckout: []
